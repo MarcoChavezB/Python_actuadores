@@ -36,7 +36,12 @@ try:
             GPIO.output(led_left, GPIO.HIGH)
             GPIO.output(led_right, GPIO.HIGH)
             print(com.get_luz_value(),"Luz")
-            
+        elif(com.get_luz_value() < 900):
+            #controlador.turn_off_lights()
+            GPIO.output(led_left, GPIO.LOW)
+            GPIO.output(led_right, GPIO.LOW)
+            print(com.get_luz_value(),"Oscuro")
+    
         elif(com.get_distance_value() < 10):
             #controlador.short_distance()
             print(com.get_distance_value(), "Corto")
