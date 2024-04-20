@@ -37,45 +37,6 @@ def on_message(client, userdata, msg):
         alarm_active = False
 
 
-try:
-    while True:
-        
-        if(com.get_alarm_value() == 1):
-            #controlador.alarma()
-            for _ in range(2):
-                GPIO.output(buzzer_pin, GPIO.HIGH)
-                GPIO.output(led_left, GPIO.HIGH)
-                GPIO.output(led_right, GPIO.HIGH)
-                sleep(1)
-                GPIO.output(buzzer_pin, GPIO.LOW)
-                GPIO.output(led_left, GPIO.LOW)
-                GPIO.output(led_right, GPIO.LOW)
-                sleep(1)
-                
-            print(com.get_alarm_value(), "Alarma") 
-            
-        elif(com.get_luz_value() > 900):
-            #controlador.turn_on_lights()
-            GPIO.output(led_left, GPIO.HIGH)
-            GPIO.output(led_right, GPIO.HIGH)
-            print(com.get_luz_value(),"Luz")
-            
-        elif(com.get_luz_value() < 900):
-            #controlador.turn_off_lights()
-            GPIO.output(led_left, GPIO.LOW)
-            GPIO.output(led_right, GPIO.LOW)
-            print(com.get_luz_value(),"Oscuro")
-    
-        elif(com.get_distance_value() < 10):
-            #controlador.short_distance()
-            print(com.get_distance_value(), "Corto")
-        elif(com.get_distance_value() > 11):
-            #controlador.long_distance()
-            print(com.get_distance_value(),"Largo")
-except KeyboardInterrupt:
-    pass
-
-
 def cleanup_gpio(signal, frame):
     print("\nLimpiando pines GPIO...")
     GPIO.cleanup()
@@ -91,6 +52,47 @@ client.tls_set(
     keyfile='/home/server/MQTT_Receptor/cec69141d6f3a0869a78f2331a3b6acebf6bc9ddb27a738dc3945c2ea4a99618-private.pem.key',
     tls_version=ssl.PROTOCOL_SSLv23)
 client.tls_insecure_set(True)
+
+
+
+
+
+try:
+    while True:
+        if(com.get_alarm_value() == 1):
+            #controlador.alarma()
+            for _ in range(2):
+                GPIO.output(buzzer_pin, GPIO.HIGH)
+                GPIO.output(led_left, GPIO.HIGH)
+                GPIO.output(led_right, GPIO.HIGH)
+                sleep(1)
+                GPIO.output(buzzer_pin, GPIO.LOW)
+                GPIO.output(led_left, GPIO.LOW)
+                GPIO.output(led_right, GPIO.LOW)
+                sleep(1)
+                
+            #print(com.get_alarm_value(), "Alarma") 
+            
+        elif(com.get_luz_value() > 900):
+            #controlador.turn_on_lights()
+            GPIO.output(led_left, GPIO.HIGH)
+            GPIO.output(led_right, GPIO.HIGH)
+            #print(com.get_luz_value(),"Luz")
+            
+        elif(com.get_luz_value() < 900):
+            #controlador.turn_off_lights()
+            GPIO.output(led_left, GPIO.LOW)
+            GPIO.output(led_right, GPIO.LOW)
+            #print(com.get_luz_value(),"Oscuro")
+    
+        elif(com.get_distance_value() < 10):
+            #controlador.short_distance()
+            print(com.get_distance_value(), "Corto")
+        elif(com.get_distance_value() > 11):
+            #controlador.long_distance()
+            print(com.get_distance_value(),"Largo")
+except KeyboardInterrupt:
+    pass
 
 
 """sleep(15)"""
