@@ -68,6 +68,8 @@ try:
     while True:
         if com.get_alarm_value() == 1 and alarm_active:
             for _ in range(10):
+                if not alarm_active:
+                    break
                 GPIO.output(buzzer_pin, GPIO.HIGH)
                 GPIO.output(led_left, GPIO.HIGH)
                 GPIO.output(led_right, GPIO.HIGH)
