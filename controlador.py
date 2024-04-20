@@ -3,7 +3,7 @@ import time
 
 class Controlador:
     def __init__(self):
-        GPIO.setmode(GPIO.BCM)
+        GPIO.setmode(GPIO.BOARD)
         self.buzzer_pin = 40 
         self.led_left = 33
         self.led_right = 37
