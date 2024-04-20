@@ -41,12 +41,12 @@ class comunicacion:
     def get_alarm_value(self):
         for data in self.read_serial():
             if(self.dataRecived[0] == 'A'):
-                return data[3]
+                return float(data[3])
             
     def get_luz_value(self):
         for data in self.read_serial():
             if(self.dataRecived[0] == 'L'):
-                return data[3]
+                return float(data[3])
             
     def get_distance_value(self):
         for data in self.read_serial():
