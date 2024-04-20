@@ -24,6 +24,19 @@ com = comunicacion()
 #controlador = Controlador()
 
 print("Iniciando")
+
+def on_connect(client, userdata, flags, rc):
+    print("Conectado al broker MQTT con resultado: " + str(rc))        
+    client.subscribe(topic)
+    
+def on_message(client, userdata, msg):
+    global alarm_active
+    if(msg.payload.decode() == "v"):
+        alarm_active = True
+    elif(msg.payload.decode() == "b"):
+        alarm_active = False
+
+
 try:
     while True:
         
@@ -63,17 +76,6 @@ except KeyboardInterrupt:
     pass
 
 
-def on_connect(client, userdata, flags, rc):
-    print("Conectado al broker MQTT con resultado: " + str(rc))        
-    client.subscribe(topic)
-    
-def on_message(client, userdata, msg):
-    global alarm_active
-    if(msg.payload.decode() == "v"):
-        alarm_active = True
-    elif(msg.payload.decode() == "b"):
-        alarm_active = False
-        
 def cleanup_gpio(signal, frame):
     print("\nLimpiando pines GPIO...")
     GPIO.cleanup()
