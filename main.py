@@ -40,6 +40,9 @@ def on_message(client, userdata, msg):
 def cleanup_gpio(signal, frame):
     print("\nLimpiando pines GPIO...")
     GPIO.cleanup()
+    GPIO.output(buzzer_pin, GPIO.LOW)
+    GPIO.output(led_left, GPIO.LOW)
+    GPIO.output(led_right, GPIO.LOW)
     sys.exit(0)
     
 client = mqtt.Client()
