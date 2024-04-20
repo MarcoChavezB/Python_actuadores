@@ -67,7 +67,7 @@ try:
     print("Conexión MQTT establecida. Iniciando bucle principal.")
     while True:
         if com.get_alarm_value() == 1 and alarm_active:
-            for _ in range(2):
+            for _ in range(10):
                 GPIO.output(buzzer_pin, GPIO.HIGH)
                 GPIO.output(led_left, GPIO.HIGH)
                 GPIO.output(led_right, GPIO.HIGH)
