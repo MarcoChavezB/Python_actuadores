@@ -15,12 +15,12 @@ class comunicacion:
       
       for number in range(5):
          try:
-            with serial.Serial(initPort + str(number), 9600) as ser:
+            with serial.Serial(initPort + str(number), 19200) as ser:
                return initPort + str(number)
          except:
             pass
          
-    def read_serial(self, port="", baud=9600):
+    def read_serial(self, port="", baud=19200):
         port = self.find_port()
         with serial.Serial(port, baud) as ser:
             try:
