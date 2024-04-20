@@ -46,6 +46,7 @@ client.tls_set(
 client.tls_insecure_set(True)
 
 # Conectar al broker MQTT
+sleep(15)
 client.connect("a169mg5ru5h2z1-ats.iot.us-east-2.amazonaws.com", 8883, 60)
 
 # Función para limpiar GPIO
