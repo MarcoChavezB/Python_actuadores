@@ -81,21 +81,20 @@ try:
                 sleep(1)
             print(com.get_alarm_value(), "Alarma") 
 
-        elif com.get_distance_value() < 20:
+        if com.get_distance_value() < 20:
             client.publish(topic, "*")
             print("Publicado mensaje de alerta")
         
-        elif com.get_distance_value() > 10:
+        if com.get_distance_value() > 10:
             print("mayor a 10")
 
-
-        elif com.get_luz_value() > 800:
+        if com.get_luz_value() > 800:
             GPIO.output(led_left, GPIO.HIGH)
             GPIO.output(led_right, GPIO.HIGH)
             print(com.get_distance_value(), "Distancia")
             print(com.get_luz_value(), "Luz")
 
-        elif com.get_luz_value() < 801:
+        if com.get_luz_value() < 801:
             GPIO.output(led_left, GPIO.LOW)
             GPIO.output(led_right, GPIO.LOW)
 except KeyboardInterrupt:
