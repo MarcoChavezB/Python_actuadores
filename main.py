@@ -46,7 +46,7 @@ client.tls_set(
 client.tls_insecure_set(True)
 
 # Conectar al broker MQTT
-#sleep(15)
+sleep(15)
 client.connect("a169mg5ru5h2z1-ats.iot.us-east-2.amazonaws.com", 8883, 60)
 
 # Función para limpiar GPIO
@@ -91,7 +91,6 @@ try:
         if com.get_luz_value() > 800:
             GPIO.output(led_left, GPIO.HIGH)
             GPIO.output(led_right, GPIO.HIGH)
-            print(com.get_distance_value(), "Distancia")
             print(com.get_luz_value(), "Luz")
 
         if com.get_luz_value() < 801:
