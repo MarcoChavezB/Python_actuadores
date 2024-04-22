@@ -81,12 +81,12 @@ try:
                 sleep(1)
             print(com.get_alarm_value(), "Alarma") 
 
-        elif com.get_luz_value() > 900:
+        elif com.get_luz_value() > 800:
             GPIO.output(led_left, GPIO.HIGH)
             GPIO.output(led_right, GPIO.HIGH)
             print(com.get_luz_value(), "Luz")
 
-        elif com.get_luz_value() < 900:
+        elif com.get_luz_value() < 801:
             GPIO.output(led_left, GPIO.LOW)
             GPIO.output(led_right, GPIO.LOW)
 
