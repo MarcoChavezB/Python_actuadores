@@ -91,7 +91,7 @@ try:
             GPIO.output(led_left, GPIO.LOW)
             GPIO.output(led_right, GPIO.LOW)
 
-        elif com.get_distance_value() < 10:
+        elif com.get_distance_value() < 20:
             client.publish(topic, "*")
             print("Publicado mensaje de alerta")
         
