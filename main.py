@@ -93,6 +93,9 @@ try:
         elif com.get_distance_value() < 10:
             client.publish(topic, "*")
             print("Publicado mensaje de alerta")
+        
+        elif com.get_distance_value() > 10:
+            print("mayor a 10")
 
 except KeyboardInterrupt:
     pass
