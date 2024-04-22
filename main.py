@@ -84,6 +84,7 @@ try:
         elif com.get_luz_value() > 800:
             GPIO.output(led_left, GPIO.HIGH)
             GPIO.output(led_right, GPIO.HIGH)
+            print(com.get_distance_value(), "Distancia")
             print(com.get_luz_value(), "Luz")
 
         elif com.get_luz_value() < 801:
