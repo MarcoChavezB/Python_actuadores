@@ -1,3 +1,5 @@
+import sys
+sys.path.append("/home/server/.local/lib/python3.9/site-packages") 
 import serial
 import platform
 
