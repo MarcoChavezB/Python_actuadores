@@ -68,7 +68,6 @@ while not client.is_connected():
 try:
     print("Conexión MQTT establecida. Iniciando bucle principal.")
     while True:
-        print(com.get_luz_value())
         if com.get_alarm_value() == 1 and alarm_active:
             for _ in range(10):
                 if not alarm_active:
