@@ -64,3 +64,6 @@ class comunicacion:
     def format_data_serial(self, data):
        return data.split("|")
             
+"""
+25 or -35
+"""
