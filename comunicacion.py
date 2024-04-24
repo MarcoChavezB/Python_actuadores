@@ -31,7 +31,7 @@ class comunicacion:
             try:
                 while True:
                     self.dataRecived = ser.readline().decode().strip()
-                    if(self.dataRecived[0] == 'A' or self.dataRecived[0] == 'D' or self.dataRecived[0] == 'L'  or self.dataRecived[0] == 'I'):
+                    if(self.dataRecived[0] == 'A' or self.dataRecived[0] == 'D' or self.dataRecived[0] == 'L'):
                         yield self.format_data_serial(self.dataRecived)
             except KeyboardInterrupt:
                 pass
@@ -54,12 +54,6 @@ class comunicacion:
         for data in self.read_serial():
             if(self.dataRecived[0] == 'D'):
                 return  float(data[3])
-            
-    def get_inclinacion_value(self):
-        for data in self.read_serial():
-            if(self.dataRecived[0] == 'I'):
-                return float(data[3])
-        
         
     def format_data_serial(self, data):
        return data.split("|")

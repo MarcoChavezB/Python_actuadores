@@ -78,11 +78,6 @@ try:
                 GPIO.output(led_left, GPIO.LOW)
                 GPIO.output(led_right, GPIO.LOW)
                 sleep(1)
-                
-        if com.get_inclinacion_value() > 25 or com.get_inclinacion_value() < -35:
-            GPIO.output(buzzer_pin, GPIO.HIGH)
-        else:
-            GPIO.output(buzzer_pin, GPIO.LOW)
             
         if com.get_distance_value() < 20:
             client.publish(topic, "*")
