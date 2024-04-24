@@ -29,8 +29,10 @@ def on_message(client, userdata, msg):
     global alarm_active
     if msg.payload.decode() == "v":
         alarm_active = True
+        print("Alarma activada")
     elif msg.payload.decode() == "b":
         alarm_active = False
+        print("Alarma desactivada")
 
 # Crear instancia del cliente MQTT
 client = mqtt.Client()
