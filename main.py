@@ -85,9 +85,5 @@ try:
         if com.get_luz_value() > 800:
             GPIO.output(led_left, GPIO.HIGH)
             GPIO.output(led_right, GPIO.HIGH)
-
-        if com.get_luz_value() < 500:
-            GPIO.output(led_left, GPIO.LOW)
-            GPIO.output(led_right, GPIO.LOW)
 except KeyboardInterrupt:
     pass
