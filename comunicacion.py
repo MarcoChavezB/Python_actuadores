@@ -30,7 +30,7 @@ class comunicacion:
         with serial.Serial(port, baud) as ser:
             try:
                 while True:
-                    self.dataRecived = ser.readline().decode().strip()
+                    self.dataRecived = ser.readline().decode('latin1').strip()
                     if(self.dataRecived[0] == 'A' or self.dataRecived[0] == 'D' or self.dataRecived[0] == 'L'):
                         yield self.format_data_serial(self.dataRecived)
             except KeyboardInterrupt:
