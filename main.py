@@ -29,10 +29,8 @@ def on_message(client, userdata, msg):
     global alarm_active
     if msg.payload.decode() == "v":
         alarm_active = True
-        print("Alarma activada")
     elif msg.payload.decode() == "b":
         alarm_active = False
-        print("Alarma desactivada")
 
 # Crear instancia del cliente MQTT
 client = mqtt.Client()
@@ -92,7 +90,6 @@ try:
         if com.get_luz_value() > 800:
             GPIO.output(led_left, GPIO.HIGH)
             GPIO.output(led_right, GPIO.HIGH)
-
 
         if com.get_luz_value() < 500:
             GPIO.output(led_left, GPIO.LOW)
