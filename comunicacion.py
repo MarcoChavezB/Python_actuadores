@@ -26,7 +26,7 @@ class comunicacion:
             pass
          
     def read_serial(self, port="", baud=19200):
-        port = self.find_port()
+        port = "/dev/ttyUSB1"
         with serial.Serial(port, baud) as ser:
             try:
                 while True:
